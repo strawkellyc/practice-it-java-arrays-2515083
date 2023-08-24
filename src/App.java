@@ -1,71 +1,49 @@
-//import java.util.Arrays;
-
 public class App {
-  /*
-   * public static Integer findSecondSmallestItem2(Integer[] arr) {
-   * if (arr.length <= 1) {
-   * return null;
-   * 
-   * }
-   * Arrays.sort(arr); // return arr[1]; --> it's not gonna work when all the
-   * numbers of an array are
-   * // the same, e.g. {3, 3, 3, 3, 3}
-   * for (int i = 0; i < arr.length - 1; i++) {
-   * if (arr[i] != arr[i + 1]) {
-   * return arr[i + 1];
-   * }
-   * }
-   * return null;
-   * }
-   */
-  public static Integer findSecondSmallestItem(Integer[] arr) {
 
-    int smallest = Integer.MAX_VALUE;
-    int secondSmallest = Integer.MAX_VALUE;
-
+  public static void printTriangle(Object[] arr) {
+     
     for (int i = 0; i < arr.length; i++) {
+      //if (arr.length < 1) {  --> meaningless, coz if arr.length is 0, can't 
+      //  System.out.println();  --> get through the for loop
+     // } 
+        if (arr.length <= 1 + i) 
+        {for (int j = 0; j <= i; j++) {
+          for (int x = 0; x < 1 + j; x++) {
+            System.out.print(arr[x]);
+          }
+          System.out.println();
+        }
+        
 
-      int current = arr[i];
-      if (current < smallest) {
-        secondSmallest = smallest;
-        smallest = current;
-      } else if (current < secondSmallest && current != smallest) {
-        secondSmallest = current;
+        
+        }}
+      System.out.println();
+    }
 
+
+    // {A, B, C}
+    // A
+    // AB
+    // ABC
+/* 
+    for (int row = 0; row < arr.length; row++) {
+      for (int col = 0; col <= row; col++) {
+        System.out.print(arr[col]);  
+        }
+        System.out.println();
       }
+      System.out.println();
     }
+*/
+  
 
-    if (secondSmallest == Integer.MAX_VALUE) {
+  // System.out.println(arr);
 
-      return null;
-    }
-    return secondSmallest;
-  }
-
-  public static void main(String[] args) {
-    Integer[] arr = new Integer[] { 5, 8, 3, 2, 6 };
-    System.out.println(findSecondSmallestItem(arr));
-
-    Integer[] arr2 = new Integer[] { 3, 8, 5, 2, 6 };
-    System.out.println(findSecondSmallestItem(arr2));
-
-    Integer[] arr3 = new Integer[] { 6, 8, 5, 2, 3 };
-    System.out.println(findSecondSmallestItem(arr3));
-
-    Integer[] arr4 = new Integer[] { 3, 3, 3, 3, 3 };
-    System.out.println(findSecondSmallestItem(arr4));
-
-    Integer[] arr5 = new Integer[] { 3, 3, 3, 2, 3 };
-    System.out.println(findSecondSmallestItem(arr5));
-
-    Integer[] arr6 = new Integer[] { 3, 4, 3, 3, 3 };
-    System.out.println(findSecondSmallestItem(arr6));
-
-    Integer[] arrEmpty = new Integer[] {};
-    System.out.println(findSecondSmallestItem(arrEmpty));
-
-    Integer[] arrOne = new Integer[] { 1 };
-    System.out.println(findSecondSmallestItem(arrOne));
-
+  public static void main(String args[]) {
+    printTriangle(new Integer[] { 1, 2, 3, 4 });
+    printTriangle(new Character[] { 'A', 'B', 'C', 'D', 'E' });
+    printTriangle(new String[] {});
+    printTriangle(new String[] { "Hello" });
+    printTriangle(new String[] { "Hello", "There", "Friend" });
   }
 }
